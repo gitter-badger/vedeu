@@ -95,7 +95,6 @@ require 'vedeu/support/refresh'
 require 'vedeu/output/clear'
 require 'vedeu/output/compositor'
 require 'vedeu/output/render'
-require 'vedeu/output/view'
 require 'vedeu/output/viewport'
 
 require 'vedeu/support/grid'
