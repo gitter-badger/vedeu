@@ -29,6 +29,7 @@ require 'set'
 require 'singleton'
 require 'time'
 
+require 'vedeu/support/console'
 require 'vedeu/support/exceptions'
 require 'vedeu/support/common'
 require 'vedeu/configuration/cli'
