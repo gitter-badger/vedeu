@@ -170,6 +170,16 @@ module Vedeu
       centre.last
     end
 
+    # Returns 1. This 1 is either the top-most or left-most coordinate of the
+    # terminal.
+    #
+    # @return [Fixnum]
+    def origin
+      1
+    end
+    alias_method :x, :origin
+    alias_method :y, :origin
+
     # Returns the total width (number of columns/characters) of the current
     # terminal.
     #
@@ -177,6 +187,7 @@ module Vedeu
     def width
       size.last
     end
+    alias_method :xn, :width
 
     # Returns the total height (number of rows/lines) of the current terminal.
     #
@@ -184,6 +195,7 @@ module Vedeu
     def height
       size.first
     end
+    alias_method :yn, :height
 
     # Returns a tuple containing the height and width of the current terminal.
     #

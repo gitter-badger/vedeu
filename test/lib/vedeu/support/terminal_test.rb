@@ -138,10 +138,40 @@ module Vedeu
       end
     end
 
+    describe '.origin' do
+      it 'returns 1' do
+        console.stub :winsize, [25, 80] do
+          Terminal.origin.must_equal(1)
+        end
+      end
+
+      context 'alias_methods' do
+        it 'returns 1' do
+          console.stub :winsize, [25, 80] do
+            Terminal.x.must_equal(1)
+          end
+        end
+
+        it 'returns 1' do
+          console.stub :winsize, [25, 80] do
+            Terminal.y.must_equal(1)
+          end
+        end
+      end
+    end
+
     describe '.width' do
       it 'returns the width of the terminal' do
         console.stub :winsize, [25, 80] do
           Terminal.width.must_equal(80)
+        end
+      end
+
+      context 'alias_methods' do
+        it 'returns the xn coordinate of the terminal' do
+          console.stub :winsize, [25, 80] do
+            Terminal.xn.must_equal(80)
+          end
         end
       end
     end
@@ -150,6 +180,14 @@ module Vedeu
       it 'returns the height of the terminal' do
         console.stub :winsize, [25, 80] do
           Terminal.height.must_equal(25)
+        end
+      end
+
+      context 'alias_methods' do
+        it 'returns the yn coordinate of the terminal' do
+          console.stub :winsize, [25, 80] do
+            Terminal.yn.must_equal(25)
+          end
         end
       end
     end
