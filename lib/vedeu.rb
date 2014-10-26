@@ -56,6 +56,7 @@ require 'vedeu/support/terminal'
 
 require 'vedeu/models/buffer'
 require 'vedeu/models/char'
+require 'vedeu/models/width'
 require 'vedeu/models/colour'
 require 'vedeu/models/cursor'
 require 'vedeu/models/event'

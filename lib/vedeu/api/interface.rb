@@ -209,12 +209,38 @@ module Vedeu
       #                                    # `other_interface` will too.
       #
       # @return [Fixnum]
-      def x(value = 0, &block)
+      def x(value = 1, &block)
         return attributes[:geometry][:x] = block if block_given?
 
         Vedeu.log(out_of_bounds('x')) if x_out_of_bounds?(value)
 
         attributes[:geometry][:x] = value
+      end
+
+      # Specify the ending x position (column) of the interface.
+      #
+      # @todo Update this documentation.
+      #
+      # @param value [Fixnum]
+      # @param block [Proc]
+      #
+      # @example
+      #   interface 'my_interface' do
+      #     x  7  # start on column 7.
+      #     xn 17 # end on column 19.
+      #
+      #   interface 'other_interface' do
+      #     xn { use('my_interface').west } # end on column 6, if
+      #                                     # `my_interface` changes position,
+      #                                     # `other_interface` will too.
+      #
+      # @return [Fixnum]
+      def xn(value = 1, &block)
+        return attributes[:geometry][:xn] = block if block_given?
+
+        Vedeu.log(out_of_bounds('xn')) if x_out_of_bounds?(value)
+
+        attributes[:geometry][:xn] = value
       end
 
       # Specify the starting y position (row/line) of the interface.
@@ -233,7 +259,7 @@ module Vedeu
       #                                      # `other_interface` will too.
       #
       # @return [Fixnum]
-      def y(value = 0, &block)
+      def y(value = 1, &block)
         return attributes[:geometry][:y] = block if block_given?
 
         Vedeu.log(out_of_bounds('y')) if y_out_of_bounds?(value)
