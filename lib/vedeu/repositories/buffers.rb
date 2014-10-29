@@ -10,8 +10,8 @@ module Vedeu
     extend self
 
     # Add an interface view into the back buffer. If the buffer is already
-    # registered, then we preserve its front buffer. Returns the name of the
-    # buffer added to storage.
+    # registered, then we preserve its front buffer; as this may be currently
+    # being displayed.
     #
     # @param attributes [Hash]
     # @return [String] The name of the buffer that has been added.

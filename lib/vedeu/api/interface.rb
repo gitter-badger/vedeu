@@ -267,6 +267,32 @@ module Vedeu
         attributes[:geometry][:y] = value
       end
 
+      # Specify the ending y position (row/line) of the interface.
+      #
+      # @todo Update this documentation.
+      #
+      # @param value [Fixnum]
+      # @param block [Proc]
+      #
+      # @example
+      #   interface 'my_interface' do
+      #     y  14 # start on row 14.
+      #     yn 15 # end on row 15.
+      #
+      #   interface 'other_interface' do
+      #     yn { use('my_interface').top } # end on column 16, if
+      #                                    # `my_interface` changes position,
+      #                                    # `other_interface` will too.
+      #
+      # @return [Fixnum]
+      def yn(value = 1, &block)
+        return attributes[:geometry][:yn] = block if block_given?
+
+        Vedeu.log(out_of_bounds('yn')) if y_out_of_bounds?(value)
+
+        attributes[:geometry][:yn] = value
+      end
+
       private
 
       # Returns the out of bounds error message for the given named attribute.
