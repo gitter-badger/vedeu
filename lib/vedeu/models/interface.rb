@@ -49,18 +49,18 @@ module Vedeu
       @name  = @attributes[:name]
       @parent = @attributes[:parent]
 
-      if block_given?
-        @self_before_instance_eval = eval('self', block.binding)
+      # if block_given?
+      #   @self_before_instance_eval = eval('self', block.binding)
 
-        instance_eval(&block)
-      end
+      #   instance_eval(&block)
+      # end
     end
 
     # @see Vedeu::API#interface
     # @param block [Proc]
     # @return [Interface]
     def define(&block)
-      instance_eval(&block) if block_given?
+      # instance_eval(&block) if block_given?
 
       Registrar.record(attributes)
 
@@ -138,11 +138,11 @@ module Vedeu
     # @param args [Array] The arguments which the method was to be invoked with.
     # @param block [Proc] The optional block provided to the method.
     # @return []
-    def method_missing(method, *args, &block)
-      Vedeu.log("Interface#method_missing '#{method}' (args: #{args.inspect})")
+    # def method_missing(method, *args, &block)
+    #   Vedeu.log("Interface#method_missing '#{method}' (args: #{args.inspect})")
 
-      @self_before_instance_eval.send(method, *args, &block) if @self_before_instance_eval
-    end
+    #   @self_before_instance_eval.send(method, *args, &block) if @self_before_instance_eval
+    # end
 
   end # Interface
 

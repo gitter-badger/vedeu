@@ -35,9 +35,9 @@ module Vedeu
       def define(&block)
         fail InvalidSyntax, '`menu` requires a block.' unless block_given?
 
-        @self_before_instance_eval = eval('self', block.binding)
+        # @self_before_instance_eval = eval('self', block.binding)
 
-        instance_eval(&block)
+        # instance_eval(&block)
 
         Vedeu::Menus.add(attributes)
 
@@ -98,11 +98,11 @@ module Vedeu
       #   with.
       # @param block [Proc] The optional block provided to the method.
       # @return []
-      def method_missing(method, *args, &block)
-        Vedeu.log("API::Menu#method_missing '#{method}' (args: #{args.inspect})")
+      # def method_missing(method, *args, &block)
+      #   Vedeu.log("API::Menu#method_missing '#{method}' (args: #{args.inspect})")
 
-        @self_before_instance_eval.send(method, *args, &block) if @self_before_instance_eval
-      end
+      #   @self_before_instance_eval.send(method, *args, &block) if @self_before_instance_eval
+      # end
 
     end # Menu
 

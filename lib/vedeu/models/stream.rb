@@ -33,11 +33,11 @@ module Vedeu
       @width      = @attributes[:width]
       @parent     = @attributes[:parent]
 
-      if block_given?
-        @self_before_instance_eval = eval('self', block.binding)
+      # if block_given?
+      #   @self_before_instance_eval = eval('self', block.binding)
 
-        instance_eval(&block)
-      end
+      #   instance_eval(&block)
+      # end
     end
 
     # Returns an array of characters, each element is the escape sequences of
@@ -119,11 +119,11 @@ module Vedeu
     # @param args [Array] The arguments which the method was to be invoked with.
     # @param block [Proc] The optional block provided to the method.
     # @return []
-    def method_missing(method, *args, &block)
-      Vedeu.log("Stream#method_missing '#{method}' (args: #{args.inspect})")
+    # def method_missing(method, *args, &block)
+    #   Vedeu.log("Stream#method_missing '#{method}' (args: #{args.inspect})")
 
-      @self_before_instance_eval.send(method, *args, &block) if @self_before_instance_eval
-    end
+    #   @self_before_instance_eval.send(method, *args, &block) if @self_before_instance_eval
+    # end
 
   end # Stream
 
