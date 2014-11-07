@@ -30,7 +30,7 @@ module Vedeu
 
       Vedeu.log("Registering menu: '#{attributes[:name]}'")
 
-      attributes.merge!({ items: Vedeu::Menu.new(attributes[:items]) })
+      attributes.merge!({ items: Vedeu::Menu.new(attributes[:items], attributes[:name]) })
 
       storage.store(attributes[:name], attributes)
     end

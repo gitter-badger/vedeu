@@ -1,7 +1,7 @@
 module Vedeu
 
   # Converts the collection passed into a list of menu items which can be
-  # navigated using the instance methods or events provided.
+  # navigated using the instance methods or events provided in {Vedeu::Menus}.
   #
   # @api private
   class Menu
